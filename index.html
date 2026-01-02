@@ -4,20 +4,29 @@
   <meta charset="UTF-8">
   <title>Jardim Care – Ambiente Calmo</title>
 
-  <!-- A-Frame (VR WebXR) -->
+  <!-- A-Frame / WebXR -->
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 </head>
 
 <body>
-  <a-scene background="color: #CFEFFF">
+  <a-scene
+    vr-mode-ui="enabled: true"
+    xr-mode-ui="enabled: true"
+    background="color: #CFEFFF">
 
-    <!-- Câmera (posição confortável) -->
+    <!-- Assets -->
+    <a-assets>
+      <!-- Som ambiente -->
+      <audio id="som-ambiente" src="ambiente.wav"></audio>
+    </a-assets>
+
+    <!-- Câmera (altura confortável) -->
     <a-entity position="0 1.6 0">
       <a-camera></a-camera>
     </a-entity>
 
     <!-- Chão (grama) -->
-    <a-plane 
+    <a-plane
       rotation="-90 0 0"
       width="50"
       height="50"
@@ -28,21 +37,30 @@
     <a-sky color="#CFEFFF"></a-sky>
 
     <!-- Sol suave -->
-    <a-sphere 
+    <a-sphere
       position="5 10 -10"
       radius="1.5"
       color="#FFF3B0">
     </a-sphere>
 
     <!-- Luz ambiente -->
-    <a-light type="ambient" color="#FFFFFF" intensity="0.8"></a-light>
+    <a-light
+      type="ambient"
+      color="#FFFFFF"
+      intensity="0.8">
+    </a-light>
 
-    <!-- Luz direcional (simula o sol) -->
-    <a-light 
-      type="directional" 
+    <!-- Luz direcional (simula sol) -->
+    <a-light
+      type="directional"
       position="5 10 7"
       intensity="0.6">
     </a-light>
+
+    <!-- Som ambiente terapêutico -->
+    <a-entity
+      sound="src: #som-ambiente; autoplay: true; loop: true; volume: 0.2">
+    </a-entity>
 
   </a-scene>
 </body>
