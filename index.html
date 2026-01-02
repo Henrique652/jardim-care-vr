@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Jardim Care – Ambiente Calmo</title>
+  <title>Jardim Care – Ambiente Terapêutico</title>
 
   <!-- A-Frame / WebXR -->
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
@@ -16,92 +16,100 @@
 
     <!-- Assets -->
     <a-assets>
-      <!-- Som ambiente -->
-      <audio id="som-ambiente" src="ambiente.wav"></audio>
+      <audio id="som-ambiente" src="./ambiente.wav" preload="auto"></audio>
     </a-assets>
 
-    <!-- Câmera (altura confortável) -->
+    <!-- Câmera -->
     <a-entity position="0 1.6 0">
       <a-camera></a-camera>
     </a-entity>
 
-    <!-- Chão (grama) -->
+    <!-- Chão -->
     <a-plane
       rotation="-90 0 0"
-      width="50"
-      height="50"
+      width="60"
+      height="60"
       color="#7BC96F">
     </a-plane>
 
-    <!-- Placa de boas-vindas (madeira) -->
-<a-entity position="0 2 -4">
+    <!-- PLACA DE BOAS-VINDAS (MADEIRA) -->
+    <a-entity position="0 2 -4">
+      <a-plane width="3.8" height="1.6" color="#8D6E63"></a-plane>
+      <a-plane width="3.9" height="1.7" color="#6D4C41" position="0 0 -0.01"></a-plane>
 
-  <!-- Base da placa (madeira) -->
-  <a-plane
-    width="3.8"
-    height="1.6"
-    color="#8D6E63"
-    material="roughness: 1; metalness: 0"
-    radius="0.08">
-  </a-plane>
+      <a-text
+        value="Bem-vindo ao Jardim Care"
+        color="#FFFFFF"
+        align="center"
+        width="3.4"
+        position="0 0.3 0.01">
+      </a-text>
 
-  <!-- Borda sutil (efeito moldura) -->
-  <a-plane
-    width="3.9"
-    height="1.7"
-    color="#6D4C41"
-    position="0 0 -0.01">
-  </a-plane>
+      <a-text
+        value="Um espaço de cuidado, calma e desenvolvimento"
+        color="#F5F5F5"
+        align="center"
+        width="3.2"
+        position="0 -0.3 0.01">
+      </a-text>
+    </a-entity>
 
-  <!-- Texto principal -->
-  <a-text
-    value="Bem-vindo ao Jardim Care"
-    color="#FFFFFF"
-    align="center"
-    width="3.4"
-    position="0 0.3 0.01">
-  </a-text>
+    <!-- ÁRVORES -->
+    <!-- Tronco -->
+    <a-cylinder position="-5 1 -6" radius="0.4" height="2" color="#8D6E63"></a-cylinder>
+    <a-sphere position="-5 3 -6" radius="1.5" color="#4CAF50"></a-sphere>
 
-  <!-- Subtítulo -->
-  <a-text
-    value="Um espaço de cuidado, calma e em desenvolvimento"
-    color="#F5F5F5"
-    align="center"
-    width="3.2"
-    position="0 -0.3 0.01">
-  </a-text>
+    <a-cylinder position="6 1 -8" radius="0.4" height="2" color="#8D6E63"></a-cylinder>
+    <a-sphere position="6 3 -8" radius="1.5" color="#43A047"></a-sphere>
 
-</a-entity>
-    
-    <!-- Céu -->
+    <a-cylinder position="2 1 -10" radius="0.4" height="2" color="#8D6E63"></a-cylinder>
+    <a-sphere position="2 3 -10" radius="1.5" color="#66BB6A"></a-sphere>
+
+    <!-- PÁSSAROS (ESTÁTICOS NAS ÁRVORES) -->
+    <a-sphere position="-5 4.2 -6" radius="0.15" color="#FFD54F"></a-sphere>
+    <a-sphere position="6 4.2 -8" radius="0.15" color="#FFECB3"></a-sphere>
+
+    <!-- PEDRAS -->
+    <a-sphere position="-2 0.3 -3" radius="0.4" color="#9E9E9E"></a-sphere>
+    <a-sphere position="1 0.25 -2" radius="0.3" color="#BDBDBD"></a-sphere>
+    <a-sphere position="3 0.35 -4" radius="0.5" color="#757575"></a-sphere>
+
+    <!-- FLORES -->
+    <a-cylinder position="-1 0.15 -1.5" radius="0.05" height="0.3" color="#388E3C"></a-cylinder>
+    <a-sphere position="-1 0.35 -1.5" radius="0.12" color="#E91E63"></a-sphere>
+
+    <a-cylinder position="0.5 0.15 -1.8" radius="0.05" height="0.3" color="#388E3C"></a-cylinder>
+    <a-sphere position="0.5 0.35 -1.8" radius="0.12" color="#FFEB3B"></a-sphere>
+
+    <a-cylinder position="2 0.15 -2.2" radius="0.05" height="0.3" color="#388E3C"></a-cylinder>
+    <a-sphere position="2 0.35 -2.2" radius="0.12" color="#03A9F4"></a-sphere>
+
+    <!-- CÉU E SOL -->
     <a-sky color="#CFEFFF"></a-sky>
+    <a-sphere position="5 10 -10" radius="1.5" color="#FFF3B0"></a-sphere>
 
-    <!-- Sol suave -->
-    <a-sphere
-      position="5 10 -10"
-      radius="1.5"
-      color="#FFF3B0">
-    </a-sphere>
+    <!-- LUZ -->
+    <a-light type="ambient" intensity="0.8"></a-light>
+    <a-light type="directional" position="5 10 7" intensity="0.6"></a-light>
 
-    <!-- Luz ambiente -->
-    <a-light
-      type="ambient"
-      color="#FFFFFF"
-      intensity="0.8">
-    </a-light>
-
-    <!-- Luz direcional (simula sol) -->
-    <a-light
-      type="directional"
-      position="5 10 7"
-      intensity="0.6">
-    </a-light>
-
-    <!-- Som ambiente terapêutico -->
+    <!-- SOM -->
     <a-entity
-      sound="src: #som-ambiente; autoplay: true; loop: true; volume: 0.2">
+      id="somAmbiente"
+      sound="src: #som-ambiente; loop: true; volume: 0.2">
     </a-entity>
 
   </a-scene>
+
+  <!-- INICIAR SOM APÓS INTERAÇÃO -->
+  <script>
+    function iniciarSom() {
+      const som = document.querySelector('#somAmbiente');
+      if (som && som.components.sound) {
+        som.components.sound.playSound();
+      }
+      window.removeEventListener('click', iniciarSom);
+    }
+    window.addEventListener('click', iniciarSom);
+  </script>
 </body>
 </html>
