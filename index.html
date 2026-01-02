@@ -33,33 +33,41 @@
       color="#7BC96F">
     </a-plane>
 
-    <!-- Placa de boas-vindas -->
+    <!-- Placa de boas-vindas (madeira) -->
 <a-entity position="0 2 -4">
 
-  <!-- Base da placa -->
+  <!-- Base da placa (madeira) -->
   <a-plane
-    width="3.5"
-    height="1.5"
-    color="#FFFFFF"
-    material="opacity: 0.9"
-    radius="0.05">
+    width="3.8"
+    height="1.6"
+    color="#8D6E63"
+    material="roughness: 1; metalness: 0"
+    radius="0.08">
+  </a-plane>
+
+  <!-- Borda sutil (efeito moldura) -->
+  <a-plane
+    width="3.9"
+    height="1.7"
+    color="#6D4C41"
+    position="0 0 -0.01">
   </a-plane>
 
   <!-- Texto principal -->
   <a-text
     value="Bem-vindo ao Jardim Care"
-    color="#2E7D32"
+    color="#FFFFFF"
     align="center"
-    width="3.2"
+    width="3.4"
     position="0 0.3 0.01">
   </a-text>
 
-  <!-- Subtítulo / assinatura -->
+  <!-- Subtítulo -->
   <a-text
     value="Um espaço de cuidado, calma e desenvolvimento"
-    color="#555555"
+    color="#F5F5F5"
     align="center"
-    width="3"
+    width="3.2"
     position="0 -0.3 0.01">
   </a-text>
 
